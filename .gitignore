@@ -1,0 +1,6 @@
+# IDEs
+.idea
+
+# Tools
+*.exe
+*.toml

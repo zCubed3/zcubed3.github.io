@@ -1,0 +1,33 @@
+html {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+h1 {
+    overflow: hidden;
+}
+
+.centered {
+    text-align: center
+}
+
+.white {
+    color: white;
+}
+
+.no-top {
+    margin-top: 0px;
+}
+
+.no-bottom {
+    margin-bottom: 0px;
+}
+
+.no-filter {
+    backdrop-filter: none;
+    filter: none;
+}

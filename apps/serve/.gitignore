@@ -1,0 +1,9 @@
+/target
+
+# Local data
+data/
+favicon.ico
+
+# IDEs
+.idea
+.vs
