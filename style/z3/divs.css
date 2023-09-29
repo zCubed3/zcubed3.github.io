@@ -1,32 +1,27 @@
-html {
-    /* background: rgb(75, 41, 175); */
+/*
+ * divs.css - Defines commonly used divs within the page
+ * Such as the project cards (and various permutations)
+ */
 
-    background: rgb(21, 19, 19);
+/*
+ * MODALS
+ */
+center_modal {
+    width: 50%;
+    height: 50%;
+    background: rgb(79, 50, 176);
 
-    /* TODO: Find a bug fix for WebKit gradients */
-    /* background: linear-gradient(180deg, rgba(45,29,98,1) 0%, rgba(108,63,255,1) 100%); */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
-    background-repeat: no-repeat;
-    background-attachment: scroll;
+    margin: auto;
+
+    border-radius: 0.8em;
 }
 
-hr {
-    background: #545454;
-    height: 0.2em;
-    border: none;
-    border-radius: 0em;
-}
-
-/* Organization */
-div.flex_grid {
-    flex-direction: column;
-}
-
-div.flex_row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
 
 /* Cards */
 project_card {
@@ -51,9 +46,9 @@ project_card {
     */
 
     filter: drop-shadow(-0.2em 0.2em 0.2em rgba(0, 0, 0, 0.25))
-        drop-shadow(0.2em 0.2em 0.2em rgba(0, 0, 0, 0.25))
-        drop-shadow(0.2em -0.2em 0.2em rgba(0, 0, 0, 0.25))
-        drop-shadow(-0.2em -0.2em 0.2em rgb(81, 50, 182));
+    drop-shadow(0.2em 0.2em 0.2em rgba(0, 0, 0, 0.25))
+    drop-shadow(0.2em -0.2em 0.2em rgba(0, 0, 0, 0.25))
+    drop-shadow(-0.2em -0.2em 0.2em rgb(81, 50, 182));
 
     border-radius: 0.8em;
 }
@@ -137,27 +132,4 @@ page_card {
     */
 
     border-radius: 0.8em;
-}
-
-/* Misc */
-.center_block {
-    display: block;
-    margin: auto;
-    left: 50%;
-}
-
-.rounded {
-    border-radius: 1em;
-}
-
-canvas.mandlebrot {
-    background: rgb(21, 14, 41);
-    padding: 10px;
-
-    filter: drop-shadow(-0.2em 0.2em 0.2em rgba(0, 0, 0, 0.35))
-            drop-shadow(0.2em 0.2em 0.2em rgba(0, 0, 0, 0.35))
-            drop-shadow(0.2em -0.2em 0.2em rgba(0, 0, 0, 0.35))
-            drop-shadow(-0.2em -0.2em 0.2em rgba(108, 63, 255, 1));
-
-    border-radius: 1em;
 }

@@ -1,0 +1,56 @@
+/*
+ * text.css - CSS styling of text
+ */
+
+html {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+/*
+ * HYPERLINK PLACEHOLDER
+ */
+a {
+    color: #99c6ff;
+    transition: all ease 200ms;
+}
+
+a:visited {
+    color: #68aaff
+}
+
+a:visited:hover {
+    color: #c4e0ff;
+}
+
+a:hover {
+    color: #c4e0ff;
+}
+
+a:active {
+    color: #c4e0ff;
+}
+
+/*
+ * CLASSES
+ */
+.centered {
+    text-align: center
+}
+
+.white {
+    color: white;
+}
+
+.no-top {
+    margin-top: 0px;
+}
+
+.no-bottom {
+    margin-bottom: 0px;
+}
+
+.no-filter {
+    backdrop-filter: none;
+    filter: none;
+}

@@ -1,0 +1,64 @@
+/*
+ * page.css - Defines common page changes
+ */
+
+html {
+    /* background: rgb(75, 41, 175); */
+
+    background: rgb(21, 19, 19);
+
+    /* TODO: Find a bug fix for WebKit gradients */
+    /* background: linear-gradient(180deg, rgba(45,29,98,1) 0%, rgba(108,63,255,1) 100%); */
+
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+hr {
+    background: #545454;
+    height: 0.2em;
+    border: none;
+    border-radius: 1em;
+}
+
+/* Organization */
+div.flex_grid {
+    flex-direction: column;
+}
+
+div.flex_grid_center {
+    display: flex;
+    margin: 0px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.flex_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* Misc */
+.center_block {
+    display: block;
+    margin: auto;
+    left: 50%;
+}
+
+.rounded {
+    border-radius: 1em;
+}
+
+canvas.mandlebrot {
+    background: rgb(21, 14, 41);
+    padding: 10px;
+
+    filter: drop-shadow(-0.2em 0.2em 0.2em rgba(0, 0, 0, 0.35))
+            drop-shadow(0.2em 0.2em 0.2em rgba(0, 0, 0, 0.35))
+            drop-shadow(0.2em -0.2em 0.2em rgba(0, 0, 0, 0.35))
+            drop-shadow(-0.2em -0.2em 0.2em rgba(108, 63, 255, 1));
+
+    border-radius: 1em;
+}

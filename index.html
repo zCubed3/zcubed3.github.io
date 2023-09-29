@@ -15,25 +15,25 @@
   <head>
     <meta charset="UTF-8">
 
+    <!-- COMMON PAGE HEAD -->
     <title>zCubed</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="/style/text.css">
-    <link rel="stylesheet" href="/style/page.css">
-
-    <script src="/scripts/main_page.js"></script>
-
+    <link rel="stylesheet" href="/style/z3_theme.css">
     <link rel="icon" href="/website-content/images/zCubed_Purple_64.gif" type="image/gif" />
+
+    <!-- MAIN PAGE HEAD -->
+    <script src="/scripts/main_page.js"></script>
   </head>
 
   <body>
     <!-- This page had a nice fancy gradient until I found a WebKit bug :P -->
     <!-- Apple, if you ever read this, please fix WebKit having a 1px offset to the right with gradients, pls and thank you! -->
 
-    <div class="background"></div>
+    <!--
+
+    INTRO SECTION
+
+    -->
 
     <div class="flex_row">
       <section_card class="auto_width">
@@ -43,13 +43,9 @@
           I'm Liam R (aka, zCubed)
         </h1>
         <hr/>
-        <img src="/website-content/images/zCubed_Purple_512.gif" id="insig_z" alt="zCubed Logo" class="center_block" width="256"/>
+        <img src="/website-content/images/zCubed_Purple_512.gif" title = "My very creative profile picture" alt="A spinning purple 'Z'" class="center_block" width="256"/>
       </section_card>
     </div>
-
-    <!--
-    <canvas id="insig_z_3d" width="256" height="256" class="center_block"></canvas>
-    -->
 
     <br/>
 
@@ -131,7 +127,10 @@
           <div class="flex_row">
             <project_card class="about_me centered">
               <h3 class="no-top">
-                <a class="white" href="https://github.com/VirtualAfterthoughts">Virtual Afterthoughts</a> - Member - September 2021
+                <a href="https://github.com/VirtualAfterthoughts">
+                  Virtual Afterthoughts
+                </a>
+                - Member - September 2021
                 <br/>
                 Unity Engine - C# / HLSL / ShaderLab
               </h3>
@@ -146,7 +145,7 @@
               Assisted in development of minor gameplay features and editor tools of Project "LVR"
               <br/>
               <h3 class="no-bottom">
-                <a class="white" href="pages/galleries/vat_lvr.html">Project "LVR" Gallery</a>
+                <a href="pages/galleries/vat_lvr.html">Project "LVR" Gallery</a>
               </h3>
             </project_card>
           </div>
@@ -155,20 +154,24 @@
           <div class="flex_row">
             <project_card class="about_me centered">
               <h3 class="no-top">
-                <a class="white" href="https://www.patreon.com/strayed/about">Torched Games</a> - Commission - March 2023
+                <a href="https://www.patreon.com/strayed/about">Torched Games</a> - Commission - March 2023
                 <br/>
                 Unity Engine - C# / HLSL / ShaderLab
               </h3>
-              Commissioned by <a class="white" href="https://www.patreon.com/strayed/about">Torched Games</a> to create a
+              Commissioned by <a href="https://www.patreon.com/strayed/about">Torched Games</a> to create a
               foliage system for their upcoming VR survival game "Strayed".
               <br/>
               <br/>
               System was never finished, but the requesting party was happy with the work done up until that point
               <br/>
               <h3 class="no-bottom">
-                <a class="white" href="pages/galleries/tg_grass.html">Gallery</a>
+                <a href="pages/galleries/tg_grass.html">
+                  Gallery
+                </a>
                 -
-                <a class="white" href="https://github.com/zCubed3/GPU-Grass/">Source Code</a>
+                <a href="https://github.com/zCubed3/GPU-Grass/">
+                  Source Code
+                </a>
               </h3>
             </project_card>
           </div>
@@ -299,5 +302,13 @@
         </div>
       </section_card>
     </div>
+
+    <footer>
+      <a href="pages/all_pages.html" class="centered">
+        <p>
+          All Pages
+        </p>
+      </a>
+    </footer>
   </body>
 </html>

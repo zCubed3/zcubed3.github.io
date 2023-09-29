@@ -9,70 +9,6 @@ let pl_major_container = null
 let pl_cur_row = null
 let pl_cur_row_step = 0
 
-let insig_z_img = null
-let insig_z = null
-let insig_z_gl = null
-
-//
-// Shader sources
-//
-let vs_test = `
-    attribute vec4 position;
-    attribute vec3 col;
-
-    varying vec3 v_col;
-
-    void main() {
-        gl_Position = position;
-        v_col = col;
-    }
-`;
-
-let fs_test = `
-    precision highp float;
-
-    varying vec3 v_col;
-
-    void main() {
-        gl_FragColor = vec4(v_col, 1.0);
-    }
-`;
-
-//
-// Test geometry
-//
-let test_verts = new Float32Array([
-    -1.0, -1.0, 0.0,
-    1.0, 0.0, 0.0,
-
-    0.0, 1.0, 0.0,
-    0.0, 1.0, 0.0,
-
-    1.0, -1.0, 0.0,
-    0.0, 0.0, 1.0,
-]);
-
-let test_tris = new Uint16Array([
-    0, 1, 2
-]);
-
-//
-// Helpers
-//
-// https://developer.mozilla.org/en-US/docs/Web/API/WebGLShader
-function createShader(gl, source, type) {
-    let shader = gl.createShader(type);
-    gl.shaderSource(shader, source);
-    gl.compileShader(shader);
-
-    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        const info = gl.getShaderInfoLog(shader);
-        throw `Could not compile WebGL program. \n\n${info}`;
-    }
-
-    return shader;
-}
-
 //
 // Functions
 //
@@ -151,59 +87,6 @@ function createCards(response, major) {
                 console.log(dupe)
             })
     })
-}
-
-function setupInsig3D() {
-    // Clear the background to transparency
-    insig_z_gl.clearColor(0.0, 0.0, 0.0, 0.0);
-    insig_z_gl.clear(insig_z_gl.COLOR_BUFFER_BIT);
-
-    // TESTING
-    let vertices = test_verts;
-    let triangles = test_tris
-
-    // Setup our shader
-    let vert = createShader(insig_z_gl, vs_test, insig_z_gl.VERTEX_SHADER);
-    let frag = createShader(insig_z_gl, fs_test, insig_z_gl.FRAGMENT_SHADER);
-
-    let prog = insig_z_gl.createProgram();
-    insig_z_gl.attachShader(prog, vert);
-    insig_z_gl.attachShader(prog, frag);
-
-    insig_z_gl.linkProgram(prog);
-    insig_z_gl.useProgram(prog);
-
-    // Setup our geometry
-    let vbo = insig_z_gl.createBuffer();
-    insig_z_gl.bindBuffer(insig_z_gl.ARRAY_BUFFER, vbo);
-    insig_z_gl.bufferData(insig_z_gl.ARRAY_BUFFER, vertices, insig_z_gl.STATIC_DRAW);
-
-    let a_position = insig_z_gl.getAttribLocation(prog, 'position');
-    if (a_position < 0) {
-        console.log('Failed to get the storage location of position');
-        return -1;
-    }
-
-    let a_col = insig_z_gl.getAttribLocation(prog, 'col');
-    if (a_col < 0) {
-        console.log('Failed to get the storage location of uv0');
-        return -1;
-    }
-
-    let byte = 4; // IEEE Float32
-
-    insig_z_gl.vertexAttribPointer(a_position, 3, insig_z_gl.FLOAT, false, byte * 6, 0);
-    insig_z_gl.vertexAttribPointer(a_col, 3, insig_z_gl.FLOAT, false, byte * 6, byte * 3);
-
-    insig_z_gl.enableVertexAttribArray(a_position);
-    insig_z_gl.enableVertexAttribArray(a_col);
-
-    let ibo = insig_z_gl.createBuffer();
-    insig_z_gl.bindBuffer(insig_z_gl.ELEMENT_ARRAY_BUFFER, ibo);
-    insig_z_gl.bufferData(insig_z_gl.ELEMENT_ARRAY_BUFFER, triangles, insig_z_gl.STATIC_DRAW);
-
-    // Then draw a frame
-    insig_z_gl.drawElements(insig_z_gl.TRIANGLES, triangles.length, insig_z_gl.UNSIGNED_SHORT, 0);
 }
 
 function main() {
