@@ -18,7 +18,6 @@ macro_rules! get_serve {
                         .join($path)
                         .join(asset);
 
-            println!("LOOKING FOR {:?}", path);
             NamedFile::open(path).await.ok()
         }
     }
@@ -26,12 +25,12 @@ macro_rules! get_serve {
 
 #[get("/")]
 async fn index() -> Option<NamedFile> {
-    let path = env::current_dir().unwrap().join("./website/index.html");
+    let path = env::current_dir().unwrap().join("website/index.html");
     NamedFile::open(path).await.ok()
 }
 
-get_serve!(load_file_site, "/<asset..>", "./website");
-get_serve!(load_file_content, "/website-content/<asset..>", "./content");
+get_serve!(load_file_site, "/<asset..>", "website");
+get_serve!(load_file_content, "/website-content/<asset..>", "content");
 
 #[rocket::main]
 #[allow(unused_must_use)]
