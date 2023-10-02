@@ -109,7 +109,7 @@ function main() {
     pl_major_container = document.getElementById("pl_major_container")
 
     // Load our Major and Minor PML files
-    fetch("/website-content/data/pml_major.json")
+    fetch("https://cdn.zcubed.xyz/data/pml_major.json")
         .then(response => response.json())
         .then(function(response) {
             createCards(response, true)
