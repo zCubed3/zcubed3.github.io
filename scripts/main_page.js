@@ -2,9 +2,11 @@
 // Globals
 //
 let plt_major_card = null
+let plt_minor_card = null
 let plt_row = null
 
 let pl_major_container = null
+let pl_minor_container = null
 
 let pl_cur_row = null
 let pl_cur_row_step = 0
@@ -23,11 +25,19 @@ function verifyTemplates() {
             })
     }
 
+    if (plt_minor_card == null) {
+        fetch("/pages/prefabs/plt_minor_card.html")
+            .then(response => response.text())
+            .then(function(contents) {
+                plt_minor_card = parser.parseFromString(contents, "text/html")
+            })
+    }
+
     // TODO: Does this need to be hard coded?
     plt_row = parser.parseFromString('<div class="flex_row"></div>>', "text/html")
 }
 
-function createCards(response, major) {
+function createMajorCards(response) {
     let base = response["get_base"]
 
     console.log("Base card path is '" + base + "'")
@@ -64,27 +74,66 @@ function createCards(response, major) {
                 let dupe = root.cloneNode(true)
 
                 // Have we stepped too far?
-                if (major && pl_cur_row_step >= 2) {
+                if (pl_cur_row_step >= 2) {
                     pl_cur_row_step = 0;
                     pl_cur_row = null;
                 }
 
                 // Do we have a row yet (major only)?
-                if (major && pl_cur_row == null) {
+                if (pl_cur_row == null) {
                     pl_cur_row = document.createElement("div")
                     pl_cur_row.classList.add("flex_row")
 
                     pl_major_container.append(pl_cur_row)
                 }
 
-                if (major) {
-                    pl_cur_row.appendChild(dupe)
-                    pl_cur_row_step += 1
-                } else {
-                    alert("Please report this, the minor PML should NOT have been loaded yet!")
-                }
+                pl_cur_row.appendChild(dupe)
+                pl_cur_row_step += 1
 
                 console.log(dupe)
+            })
+    })
+}
+
+function createMinorCards(response) {
+    const parser = new DOMParser()
+
+    let base = response["get_base"]
+
+    console.log("Base card path is '" + base + "'")
+
+    response["schemas"].forEach(function(path) {
+        let concat = base + path
+
+        fetch(concat)
+            .then(card => card.json())
+            .then(function(card) {
+                console.log(card)
+
+                let root = plt_minor_card.getElementById("prefab_root")
+
+                plt_minor_card.getElementById("card_desc").innerHTML = card["description"]
+                plt_minor_card.getElementById("card_state").innerHTML = card["state"]
+
+                let name = card["name"]
+
+                let title = plt_minor_card.getElementById("card_title")
+
+                if (card["name_is_link"] === "true") {
+                    let elem_a = document.createElement("a")
+                    elem_a.href = card["link"]
+                    elem_a.innerText = name
+
+                    plt_major_card.getElementById("card_title").innerHTML = elem_a.outerHTML
+                } else {
+                    plt_major_card.getElementById("card_title").innerHTML = name
+                }
+
+                container.innerHTML = card["contents"]
+
+                let dupe = root.cloneNode(true)
+
+                pl_minor_container.appendChild(dupe)
             })
     })
 }
@@ -107,17 +156,25 @@ function main() {
     verifyTemplates()
 
     pl_major_container = document.getElementById("pl_major_container")
+    pl_minor_container = document.getElementById("pl_minor_container")
 
     // Load our Major and Minor PML files
     fetch("/cdn/data/pml_major.json")
         .then(response => response.json())
         .then(function(response) {
-            createCards(response, true)
+            createMajorCards(response)
+        })
+
+    fetch("/cdn/data/pml_minor.json")
+        .then(response => response.json())
+        .then(function(response) {
+            createMinorCards(response)
         })
 
     // Destroy HTML warnings
     document.getElementById("pl_major_warning").remove()
-    console.log("Did the warning go away?")
+    document.getElementById("pl_minor_warning").remove()
+    console.log("You better not see any more warning elements!")
 }
 
 window.onload = main
