@@ -19,14 +19,14 @@
     <title>zCubed</title>
 
     <link rel="stylesheet" href="/style/z3_theme.css">
-    <link rel="icon" href="https://cdn.zcubed.xyz/images/zCubed_Purple_64.gif" type="image/gif" />
+    <link rel="icon" href="https://cdn.zcubed.xyz/images/zCubed_Purple_64.png" type="image/gif" />
 
     <!-- MAIN PAGE HEAD -->
     <script src="/scripts/main_page.js"></script>
 
     <!-- DISCORD EMBED -->
-    <meta content="zCubed's Website" property="og:title" />
-    <meta content="Idk I make things?" property="og:description" />
+    <meta content="zCubed Portfolio" property="og:title" />
+    <meta content="A slice of zCubed's programming projects and experience in game development" property="og:description" />
     <meta content="https://zcubed.xyz/" property="og:url" />
     <meta content="https://cdn.zcubed.xyz/images/zCubed_Purple_512.png" property="og:image" />
     <meta content="#4f32b0" data-react-helmet="true" name="theme-color" />
@@ -47,10 +47,16 @@
         <h1 class="centered no-top">
           Hello!
           <br/>
-          I'm Liam R (aka, zCubed)
+          I am Liam Reese
+          <br>
+          (aka, zCubed)
         </h1>
         <hr/>
-        <img src="https://cdn.zcubed.xyz/images/zCubed_Purple_512.gif" title = "My very creative profile picture" alt="A spinning purple 'Z'" class="center_block" width="256"/>
+        <img src="https://cdn.zcubed.xyz/images/zCubed_Purple_512.gif" title = "My very creative profile picture" alt="A spinning purple 'Z'; the insignia of the author" class="center_block" width="256"/>
+        <hr/>
+        <h2 class="centered no-bottom">
+          Graphics Programmer
+        </h2>
       </section_card>
     </div>
 
@@ -76,15 +82,43 @@
               <h3 class="no-top">
                 Who am I?
               </h3>
-              I am Liam R., aka "zCubed3"
+              I am Liam Reese, aka "zCubed" / "zCubed3"
               <br/>
               <br/>
-              I've been programming since I was 14 (I'm 18 now)
+              I've been programming since I was 14 (I'm 19 now)
               <br/>
               I started with using C# and the Unity Engine in 2018
               <br/>
               <br/>
               I have used C, C++, Rust, and C# in a hobbyist capacity for a few years
+            </project_card>
+          </div>
+        </div>
+
+        <div class="flex_grid">
+          <div class="flex_row">
+            <project_card class="auto_width centered">
+              <h3 class="no-top">
+                What is your specialization?
+              </h3>
+              I primarily specialize in graphics programming
+              <br/>
+              <br/>
+              I also specialize in general software development
+            </project_card>
+          </div>
+        </div>
+
+        <div class="flex_grid">
+          <div class="flex_row">
+            <project_card class="auto_width centered">
+              <h3 class="no-top">
+                Education?
+              </h3>
+              High School Graduate
+              <br/>
+              <br/>
+              I am currently not attending college
             </project_card>
           </div>
         </div>
@@ -161,23 +195,84 @@
           <div class="flex_row">
             <project_card class="about_me centered">
               <h3 class="no-top">
-                <a href="https://www.patreon.com/strayed/about">Torched Games</a> - Commission - March 2023
+                <a href="http://www.crustaceaninteractive.com/">Crustacean Interactive</a> - Commission - March 2023
                 <br/>
                 Unity Engine - C# / HLSL / ShaderLab
               </h3>
-              Commissioned by <a href="https://www.patreon.com/strayed/about">Torched Games</a> to create a
+              Commissioned by <a href="http://www.crustaceaninteractive.com/">Crustacean Interactive</a> to create a
               foliage system for their upcoming VR survival game "Strayed".
               <br/>
               <br/>
-              System was never finished, but the requesting party was happy with the work done up until that point
+              System was finished, but was not integrated
+              <br/>
+              <br/>
+              I was given permission to release the source code publicly on my GitHub
               <br/>
               <h3 class="no-bottom">
-                <a href="pages/galleries/tg_grass.html">
+                <a href="pages/galleries/ci_grass.html">
                   Gallery
                 </a>
                 -
                 <a href="https://github.com/zCubed3/GPU-Grass/">
                   Source Code
+                </a>
+              </h3>
+            </project_card>
+          </div>
+        </div>
+        <div class="flex_grid">
+          <div class="flex_row">
+            <project_card class="about_me centered">
+              <h3 class="no-top">
+                <a href="http://www.crustaceaninteractive.com/">Crustacean Interactive</a> - Commission - October 2023
+                <br/>
+                Unity Engine - C#
+              </h3>
+              Commissioned by <a href="http://www.crustaceaninteractive.com/">Crustacean Interactive</a> to create a
+              terrain chunking system
+              <br/>
+              The system is used in their upcoming VR Survival Game, "Strayed"
+              <br/>
+              <br/>
+              System was finished and used to aid in the porting of the game to the Meta Quest 2
+              <br/>
+              <br/>
+              Source code not released as it is actively being used in the game
+              <br/>
+              <br/>
+              The system is based on a modified geomipmapping algorithm
+              <br/>
+              <br/>
+              The modifications allow for async and "on-the-fly" generation of terrain slices
+              <br/>
+              The system was also designed to remain deterministic between platforms
+              <br/>
+              <h3 class="no-bottom">
+                <a href="pages/galleries/ci_chunking.html">
+                  Gallery
+                </a>
+              </h3>
+            </project_card>
+          </div>
+        </div>
+        <div class="flex_grid">
+          <div class="flex_row">
+            <project_card class="about_me centered">
+              <h3 class="no-top">
+                <a href="http://www.crustaceaninteractive.com/">Crustacean Interactive</a> - Commission - October 2023
+                <br/>
+                Unity Engine - C# / HLSL / ShaderLab
+              </h3>
+              Aided in the porting of Strayed to the Meta Quest 2, the initial port targeted 72hz with a consistent frame rate
+              <br/>
+              <br/>
+              Later porting efforts target 90hz
+              <br/>
+              <br/>
+              On November 11th, a playable "vertical slice" of the game was completed on the Meta Quest 2 that met the performance target
+              <h3 class="no-bottom">
+                <a href="pages/galleries/ci_mq2port.html">
+                  Gallery
                 </a>
               </h3>
             </project_card>
@@ -202,8 +297,6 @@
       </section_card>
     </div>
 
-    <br/>
-
     <div class="flex_row">
       <section_card class="auto_width">
         <h1 class="centered no-top">
@@ -217,6 +310,8 @@
         </div>
       </section_card>
     </div>
+
+    <br/>
 
     <div class="flex_grid">
       <div class="flex_row">
@@ -255,7 +350,7 @@
             GPU: Apple M2 10C
             <br/>
             <br/>
-            OS: macOS Ventura
+            OS: macOS Sonoma (14)
           </project_card>
         </section_card>
       </div>

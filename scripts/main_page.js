@@ -22,6 +22,14 @@ function verifyTemplates() {
             .then(response => response.text())
             .then(function(contents) {
                 plt_major_card = parser.parseFromString(contents, "text/html")
+
+                pl_major_container = document.getElementById("pl_major_container")
+
+                fetch("/cdn/data/pml_major.json")
+                    .then(response => response.json())
+                    .then(function(response) {
+                        createMajorCards(response)
+                    })
             })
     }
 
@@ -30,6 +38,14 @@ function verifyTemplates() {
             .then(response => response.text())
             .then(function(contents) {
                 plt_minor_card = parser.parseFromString(contents, "text/html")
+
+                pl_minor_container = document.getElementById("pl_minor_container")
+
+                fetch("/cdn/data/pml_minor.json")
+                    .then(response => response.json())
+                    .then(function(response) {
+                        createMinorCards(response)
+                    })
             })
     }
 
@@ -90,7 +106,7 @@ function createMajorCards(response) {
                 pl_cur_row.appendChild(dupe)
                 pl_cur_row_step += 1
 
-                console.log(dupe)
+                //console.log(dupe)
             })
     })
 }
@@ -117,23 +133,23 @@ function createMinorCards(response) {
 
                 let name = card["name"]
 
-                let title = plt_minor_card.getElementById("card_title")
-
                 if (card["name_is_link"] === "true") {
                     let elem_a = document.createElement("a")
                     elem_a.href = card["link"]
                     elem_a.innerText = name
 
-                    plt_major_card.getElementById("card_title").innerHTML = elem_a.outerHTML
+                    plt_minor_card.getElementById("card_title").innerHTML = elem_a.outerHTML
                 } else {
-                    plt_major_card.getElementById("card_title").innerHTML = name
+                    plt_minor_card.getElementById("card_title").innerHTML = name
                 }
-
-                container.innerHTML = card["contents"]
 
                 let dupe = root.cloneNode(true)
 
-                pl_minor_container.appendChild(dupe)
+                let row = document.createElement("div")
+                row.classList.add("flex_row")
+
+                pl_minor_container.append(row)
+                row.appendChild(dupe)
             })
     })
 }
@@ -154,22 +170,6 @@ function main() {
     // Project cards
     //
     verifyTemplates()
-
-    pl_major_container = document.getElementById("pl_major_container")
-    pl_minor_container = document.getElementById("pl_minor_container")
-
-    // Load our Major and Minor PML files
-    fetch("/cdn/data/pml_major.json")
-        .then(response => response.json())
-        .then(function(response) {
-            createMajorCards(response)
-        })
-
-    fetch("/cdn/data/pml_minor.json")
-        .then(response => response.json())
-        .then(function(response) {
-            createMinorCards(response)
-        })
 
     // Destroy HTML warnings
     document.getElementById("pl_major_warning").remove()

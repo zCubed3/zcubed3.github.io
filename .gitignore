@@ -3,3 +3,6 @@
 
 # Tools
 *.exe
+
+# Content
+/cdn

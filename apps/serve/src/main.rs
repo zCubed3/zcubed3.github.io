@@ -30,7 +30,7 @@ async fn index() -> Option<NamedFile> {
 }
 
 get_serve!(load_file_site, "/<asset..>", "website");
-get_serve!(load_file_content, "/website-content/<asset..>", "content");
+get_serve!(load_file_content, "/cdn/<asset..>", "cdn");
 
 #[rocket::main]
 #[allow(unused_must_use)]
