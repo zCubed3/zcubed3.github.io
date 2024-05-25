@@ -11,8 +11,8 @@ gem "jekyll", "~> 4.3.3"
 
 # Use my theme
 
-# gem "zcubed-theme", path: "/home/liam/JekyllSite/zcubed-theme/"
-gem "zcubed-theme", git: "https://github.com/zCubed3/zcubed3.github.io-theme"
+gem "zcubed-theme", path: "/home/liam/JekyllSite/zcubed-theme/"
+#gem "zcubed-theme", git: "https://github.com/zCubed3/zcubed3.github.io-theme"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
