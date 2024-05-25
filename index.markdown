@@ -61,7 +61,7 @@ layout: home
 * AWS S3, DynamoDB, EC2  
 * Git
 
-### [Gallery](galleries/strayed)
+### [Gallery](galleries/strayed.html)
 "
 
 %}
@@ -105,7 +105,7 @@ layout: home
 * D3D11 
 * PlasticSCM
 
-### [Gallery](galleries/lvr)
+### [Gallery](galleries/lvr.html)
 "
 
 %}
