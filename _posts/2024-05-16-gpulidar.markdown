@@ -1,0 +1,55 @@
+---
+
+layout: post
+title:  "GPU Driven Lidar"
+
+date:   2024-05-16 15:29:16 -0700
+categories: jekyll update
+
+excerpt: "Using the power of Unity, I made a Lidar effect that runs entirely on the GPU!"
+
+---
+
+<h1 class="centered">
+    This page is under construction!
+</h1>
+
+```c
+#include <stdlib.h>
+
+int main(int argc, char** argv) {
+    printf("Sorry this page isn't complete yet! Please come back later!\n");
+    return 1;
+}
+```
+
+```c++
+#include <iostream>
+
+int main(int argc, char** argv) {
+    std::cout << "Sorry this page isn't complete yet! Please come back later!" << std::endl;
+    return 1;
+}
+```
+
+```c#
+using System;
+
+internal static class Program 
+{
+    static void Main(params string[] args) 
+    {
+        Console.WriteLine("Sorry this page isn't complete yet! Please come back later!");
+    }
+}
+```
+
+```rust
+fn main() {
+    println!("Sorry this page isn't complete yet! Please come back later!");
+}
+```
+
+```py
+print("Sorry this page isn't complete yet! Please come back later!")
+```
