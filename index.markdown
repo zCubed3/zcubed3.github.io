@@ -56,11 +56,10 @@ layout: home
 > StrayedVR is a multiplayer VR survial game from [Crustacean Interactive](https://crustaceaninteractive.com).  
 
 ### Skills Used  
-* C#  
-* HLSL  
-* D3D11 / DirectX11  
-* Vulkan  
-* AWS S3 / DynamoDB / EC2  
+* C#, HLSL  
+* D3D11, Vulkan  
+* AWS S3, DynamoDB, EC2  
+* Git
 
 ### [Gallery](galleries/strayed)
 "
@@ -82,6 +81,34 @@ layout: home
 <!-------------------->
 
 {% capture major_projects %}
+
+{% include experience_card.html 
+
+    title="LVR<br/>Virtual Afterthoughts"
+
+    date = "September 2020 - September 2022"
+    skills = "C# / HLSL"
+
+    state = "Unreleased"
+
+    description = "
+### Description  
+
+> LVR was a hobby project started by three of my friends, Lakatrazz, Riggle, and LA1870.
+>
+> My job on the project was to modify Unity's URP to create a unique graphical style for our game
+>
+> The game never released, however all of us learned a lot about teamwork and project structuring
+
+### Skills Used  
+* C#, HLSL  
+* D3D11 
+* PlasticSCM
+
+### [Gallery](galleries/lvr)
+"
+
+%}
 
 {% include experience_card.html 
 
