@@ -28,6 +28,10 @@ github_username: "zCubed3"
 
 show_excerpts: true
 
+collections:
+  experiments:
+    output: true
+
 # Build settings
 theme: zcubed-theme
 plugins:

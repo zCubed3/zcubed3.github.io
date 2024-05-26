@@ -7,13 +7,37 @@ embed_description: "Various JS / WASM experiments hosted on Liam Reese's website
 layout: base
 ---
 
-{% include experiment_card.html 
+{% capture experiments %}
 
-    title="WebGL Mandlebrot"
-    href="./experiments/webgl_mandlebrot.html"
+{%- for post in site.experiments -%}
+<div class="flex_row">
+  <project_card class="blog_post">
+    <h3>
+      <span class="post-meta">{{ post.date | date: date_format }}</span>
+      -
+      <span>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+      </span>
+    </h3>
 
-    date = "September 2023"
+    {%- if site.show_excerpts -%}
+    <p>
+      {{ post.excerpt }}
+    </p>
+    {%- endif -%}
+  </project_card>
+</div>
+{%- endfor -%}
 
-    description = "A WebGL powered mandlebrot renderer, it's not super fancy but it's cool to play with"
+{% endcapture %}
+
+
+{% include experience_block.html
+
+title="Experiments"
+
+content=experiments
 
 %}
